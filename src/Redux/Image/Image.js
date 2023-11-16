@@ -1,4 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import showToast from "../../Utils/showToast";
+import toast from "react-hot-toast";
 
 const url = "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud";
 
@@ -33,11 +35,17 @@ const {setdata, setError, setLoading} = actions;
 export default reducer;
 
 
+
+
+
 export function fetchImage(data){
     return async function fetchProductThunk(dispatch,getState){
         try{
             dispatch(setLoading(true));
             console.log("start");
+            
+            toast.loading("Loding....");
+
             const response = await fetch(
                 "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud",
                 {
@@ -55,10 +63,16 @@ export function fetchImage(data){
             const url = URL.createObjectURL(result);
 
             // console.log({url});
-
+            
             dispatch(setdata(url));
             dispatch(setLoading(false));
-
+            toast.dismiss();
+            showToast({
+                msg:"Image Fetched Successfully",
+                type:"success",
+                duration:2000
+            })
+            
         }catch(err){
             dispatch(setError(err.toString()));
         }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchImage } from '../Redux/Image/Image';
+import toast from 'react-hot-toast';
 
 
 
@@ -19,6 +20,7 @@ const SearchBar = () => {
     const generate = async ()=>{
         
         dispatch(fetchImage(input));
+        
         // return result;
         // setInput("");
     }
