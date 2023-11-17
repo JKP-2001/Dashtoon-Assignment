@@ -35,14 +35,14 @@ const SearchBar = () => {
                     <div className="px-4 py-2 bg-white rounded-t-lg">
                         <label htmlFor="comment" className="sr-only">Your comment</label>
                         {imageState.loading ?
-                            <textarea id="comment" rows="4" readOnly className="font-handwritten2 text-base outline-none w-full px-0 text-gray-900 bg-white border-0 focus:ring-0" placeholder="Create image of an astronaut riding a cycle............" required value={input} onChange={detectChange}></textarea> :
-                            <textarea id="comment" rows="4" className="font-handwritten2 text-base outline-none w-full px-0 text-gray-900 bg-white border-0 focus:ring-0" placeholder="Create image of an astronaut riding a cycle............" required value={input} onChange={detectChange}></textarea>}
+                            <textarea id="comment" rows="3" readOnly className="font-handwritten2 text-base outline-none w-full px-0 text-gray-900 bg-white border-0 focus:ring-0" placeholder="Create image of an astronaut riding a cycle............" required value={input} onChange={detectChange}></textarea> :
+                            <textarea id="comment" rows="3" className="font-handwritten2 text-base outline-none w-full px-0 text-gray-900 bg-white border-0 focus:ring-0" placeholder="Create image of an astronaut riding a cycle............" required value={input} onChange={detectChange}></textarea>}
                     </div>
-                    <div className="flex items-center justify-between px-3 py-2 border-t">
-                        {imageState.loading ? <button type="submit" disabled className="outline-none inline-flex items-center py-2.5 px-4 text-sm font-Button text-center  text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800 hover:scale-110 transition delay-150 ">
+                    <div className="flex items-center justify-between px-3 py-1 border-t">
+                        {imageState.loading ? <button type="submit" disabled className="outline-none inline-flex items-center py-1 px-4 text-sm font-Button text-center  text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800 hover:scale-110 transition delay-150 ">
                             Generating....
                         </button> :
-                            <button type="submit" className="outline-none inline-flex items-center py-2.5 px-4 text-sm font-Button text-center  text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800 hover:scale-110 transition delay-150 " onClick={generate}>
+                            <button type="submit" className="outline-none inline-flex items-center py-1 px-4 text-sm font-Button text-center  text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800 hover:scale-110 transition delay-150 " onClick={generate}>
                                 Generate                                
                             </button>
                         }
