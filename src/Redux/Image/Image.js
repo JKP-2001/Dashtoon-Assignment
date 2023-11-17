@@ -42,9 +42,16 @@ export function fetchImage(data){
     return async function fetchProductThunk(dispatch,getState){
         try{
             dispatch(setLoading(true));
-            console.log("start");
             
-            toast.loading("Loding....");
+            
+            toast.loading("Generating....",{
+                
+                style: {
+                  borderRadius: '10px',
+                  background: '#333',
+                  color: '#fff',
+                },
+              });
 
             const response = await fetch(
                 "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud",
@@ -68,7 +75,7 @@ export function fetchImage(data){
             dispatch(setLoading(false));
             toast.dismiss();
             showToast({
-                msg:"Image Fetched Successfully",
+                msg:"Image Generated Successfully",
                 type:"success",
                 duration:2000
             })
