@@ -8,7 +8,7 @@ const Navbar = () => {
     return (
 
         <div 
-         className="flex bg-white h-[80px] px-4 sm:px-16 justify-center  items-center sm:justify-between border-b-[1px] border-gray-300 shadow-lg">
+         className="flex overflow-hidden bg-white h-[80px] px-4 sm:px-16 justify-center  items-center sm:justify-between border-b-[1px] border-gray-300 shadow-lg">
             <motion.div 
             className='flex transition delay-150 hover:scale-110 hover:cursor-pointer  items-center'>
                 <img src={logo} className='w-14 h-14' alt="" />
