@@ -18,10 +18,10 @@ const TopText = () => {
 
                 <div className="entry_message mx-10 pt-16 sm:pt-28 ">
 
-                    <div className='text-4xl sm:text-5xl text-center font-handwritten2 text-white'>
+                    <div className='text-2xl sm:text-5xl text-center font-handwritten2 text-white'>
                         Welcome to AI Image Generator,
                     </div>
-                    <div className='text-4xl sm:text-5xl text-center font-handwritten2 text-white'>
+                    <div className='text-2xl sm:text-5xl text-center font-handwritten2 text-white'>
                         where creativity meets artificial intelligence!
                     </div>
 
