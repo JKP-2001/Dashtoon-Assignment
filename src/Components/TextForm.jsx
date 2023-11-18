@@ -1,46 +1,43 @@
 import React, { useState } from "react";
 import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
+    Button,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
 } from "@material-tailwind/react";
 
+import { Textarea } from "@material-tailwind/react";
+import SearchBar from "./SearchBar";
+import { useSelector } from "react-redux";
+import Loader from "./Loader";
+
 const TextForm = (props) => {
-  const {open,setOpen, handleOpen} = props
+    const { open, setOpen, handleOpen } = props
 
-  
 
-  return (
-    <>
-      <Button onClick={handleOpen} variant="gradient" className="bg-pink-400 font-handwritten2">
-        Generate Comic Strip
-      </Button>
-      <Dialog open={open} handler={handleOpen}>
-        <DialogHeader>Its a simple dialog.</DialogHeader>
-        <DialogBody>
-          The key to more success is to have a lot of pillows. Put it this way,
-          it took me twenty-five years to get these plants, twenty-five years of
-          blood, sweat, and tears, and I&apos;m never giving up, I&apos;m just
-          getting started. I&apos;m up to something. Fan luv.
-        </DialogBody>
-        <DialogFooter>
-          <Button
-            variant="text"
-            color="red"
-            onClick={handleOpen}
-            className="mr-1"
-          >
-            <span>Cancel</span>
-          </Button>
-          <Button variant="gradient" color="white" onClick={handleOpen}>
-            <span>Confirm</span>
-          </Button>
-        </DialogFooter>
-      </Dialog>
-    </>
-  );
+    const imageState = useSelector((state) => state.image);
+
+
+    return (
+        <>
+            {!imageState.loading?<Button onClick={handleOpen} variant="gradient" className="bg-pink-400 hover:bg-pink-800 font-handwritten2">
+                Craft Comic Strip
+            </Button>:
+            <Button variant="gradient" className="bg-pink-400 hover:bg-pink-800 font-handwritten2">
+                
+                <Loader />
+            </Button>}
+            <Dialog open={open} handler={handleOpen}>
+                <DialogHeader className="font-handwritten2 ">Design Your Story in Pixels!</DialogHeader>
+                <DialogBody> 
+                    <SearchBar handleOpen={handleOpen}/>
+                    {/* <Textarea color="lightBlue" size="regular" outline={true} label="Enter your text here" className="font-handwritten2"/> */}
+                </DialogBody>
+                
+            </Dialog>
+        </>
+    );
 };
 
 export default TextForm;

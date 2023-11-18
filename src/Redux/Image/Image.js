@@ -44,7 +44,7 @@ export function fetchImage(data){
             dispatch(setLoading(true));
             
             
-            toast.loading("Generating....",{
+            toast.loading("Crafting Your Comic....",{
                 
                 style: {
                   borderRadius: '10px',
@@ -75,7 +75,7 @@ export function fetchImage(data){
             dispatch(setLoading(false));
             toast.dismiss();
             showToast({
-                msg:"Image Generated Successfully",
+                msg:"Comic Crafted Successfully",
                 type:"success",
                 duration:2000
             })

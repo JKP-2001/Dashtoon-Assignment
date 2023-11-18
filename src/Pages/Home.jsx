@@ -8,6 +8,13 @@ import { motion } from "framer-motion";
 import Drawer from '../Components/Drawer'
 import TopText from '../Components/TopText'
 
+import img1 from "../Images/Static/1.png"
+// import img2 from "../Images/Static/2.jpg"
+// import img3 from "../Images/Static/3.jpg"
+// import img4 from "../Images/Static/4.png"
+import img5 from "../Images/Static/5.png"
+import img6 from "../Images/Static/6.jpg"
+
 
 
 const Home = () => {
@@ -32,6 +39,14 @@ const Home = () => {
           <TopText />
         </div>
 
+        {/* Static Images */}
+
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 xl:mx-16 pt-16 pb-7">
+          <Images imgurl={img1} />
+          <Images imgurl={img5} />
+         
+          <Images imgurl={img6} />
+        </div>
 
         
         <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 xl:mx-16 pt-16 pb-7">

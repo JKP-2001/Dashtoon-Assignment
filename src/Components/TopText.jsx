@@ -3,14 +3,18 @@ import React, { useState } from 'react'
 import { motion } from "framer-motion";
 import SearchBar from './SearchBar';
 import TextForm from './TextForm';
+import { useSelector } from 'react-redux';
 
 const TopText = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(!open);
+
+    
+
     return (
         <div className='overflow-hidden'>
-            <motion.div animate={{ opacity: 3 }} initial={{ opacity: 0 }}
-                className='pb-10 bg-back2 w-full  h-[600px]  transition-all duration-500 ease-in-out transform bg-center bg-cover min-h-[400px] hover:scale-[1.01]'>
+            <motion.div 
+                className='pb-10 bg-back2 w-full  h-[615px]  transition-all duration-500 ease-in-out transform bg-center bg-cover min-h-[400px] hover:scale-[1.01]'>
 
                 <div className="entry_message mx-10 pt-16 sm:pt-28 ">
 
