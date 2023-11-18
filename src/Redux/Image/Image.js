@@ -5,24 +5,24 @@ import toast from "react-hot-toast";
 const url = "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud";
 
 const initialState = {
-    data:[],
-    error:null,
-    loading:false
+    data: [],
+    error: null,
+    loading: false
 }
 
 const imageSlice = createSlice({
-    name:"Image",
+    name: "Image",
     initialState,
-    reducers:{
-        setdata(state,action){
+    reducers: {
+        setdata(state, action) {
             let newdata = [...state.data];
             newdata.push(action.payload);
             state.data = newdata;
         },
-        setError(state,action){
+        setError(state, action) {
             state.error = action.payload
         },
-        setLoading(state,action){
+        setLoading(state, action) {
             state.loading = action.payload
         }
     }
@@ -30,7 +30,7 @@ const imageSlice = createSlice({
 
 const { reducer, actions } = imageSlice;
 
-const {setdata, setError, setLoading} = actions;
+const { setdata, setError, setLoading } = actions;
 
 export default reducer;
 
@@ -38,50 +38,70 @@ export default reducer;
 
 
 
-export function fetchImage(data){
-    return async function fetchProductThunk(dispatch,getState){
-        try{
+export function fetchImage(data) {
+    return async function fetchProductThunk(dispatch, getState) {
+
+        const HTTP_TIMEOUT = 60*1000*30;
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), HTTP_TIMEOUT);
+
+        try {
             dispatch(setLoading(true));
-            
-            
-            toast.loading("Crafting Your Comic....",{
-                
+
+
+            toast.loading("Crafting Your Comic....", {
+
                 style: {
-                  borderRadius: '10px',
-                  background: '#333',
-                  color: '#fff',
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
                 },
-              });
+            });
+
 
             const response = await fetch(
                 "https://xdwvg9no7pefghrn.us-east-1.aws.endpoints.huggingface.cloud",
                 {
-                    headers: { 
+                    headers: {
                         "Accept": "image/png",
-                        "Authorization": "Bearer VknySbLLTUjbxXAXCjyfaFIPwUTCeRXbFSOjwRiCxsxFyhbnGjSFalPKrpvvDAaPVzWEevPljilLVDBiTzfIbWFdxOkYJxnOPoHhkkVGzAknaOulWggusSFewzpqsNWM", 
-                        "Content-Type": "application/json" 
+                        "Authorization": "Bearer VknySbLLTUjbxXAXCjyfaFIPwUTCeRXbFSOjwRiCxsxFyhbnGjSFalPKrpvvDAaPVzWEevPljilLVDBiTzfIbWFdxOkYJxnOPoHhkkVGzAknaOulWggusSFewzpqsNWM",
+                        "Content-Type": "application/json"
                     },
                     method: "POST",
-                    body: JSON.stringify({inputs:data}),
+                    body: JSON.stringify({ inputs: data }),
+                    signal: controller.signal
                 }
             );
+
             const result = await response.blob();
 
             const url = URL.createObjectURL(result);
 
             // console.log({url});
-            
+
             dispatch(setdata(url));
             dispatch(setLoading(false));
             toast.dismiss();
             showToast({
-                msg:"Comic Crafted Successfully",
-                type:"success",
-                duration:2000
+                msg: "Comic Crafted Successfully",
+                type: "success",
+                duration: 2000
             })
+
+        } catch (err) {
+            // dispatch(setError(err.toString()));
+            dispatch(setLoading(false));
+            toast.dismiss();
             
-        }catch(err){
-            dispatch(setError(err.toString()));
+            showToast({
+                msg:"Request Timeout Of 30mins. Please try again.",
+                type:"error",
+                duration:3000
+            })
+        }
+        finally {
+            clearTimeout(timeoutId)
         }
     }
 }

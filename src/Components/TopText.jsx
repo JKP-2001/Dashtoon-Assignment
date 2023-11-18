@@ -4,17 +4,31 @@ import { motion } from "framer-motion";
 import SearchBar from './SearchBar';
 import TextForm from './TextForm';
 import { useSelector } from 'react-redux';
+import showToast from '../Utils/showToast';
 
 const TopText = () => {
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(!open);
+
+    const imageState = useSelector((state) => state.image);
+
+    const handleOpen = () => {
+        if(imageState.data.size<=10){
+            showToast({
+                msg:"You have reached the maximum limit of 10 images",
+                type:"error",
+                duration:3000
+            })
+        }else{
+            setOpen(!open)
+        }
+    };
 
     
 
     return (
         <div className='overflow-hidden'>
             <motion.div 
-                className='pb-10 bg-back2 w-full  h-[615px]  transition-all duration-500 ease-in-out transform bg-center bg-cover min-h-[400px] hover:scale-[1.01]'>
+                className='pb-10 bg-back2 w-full  h-[600px] xl:h-[500px]  transition-all duration-500 ease-in-out transform bg-center bg-cover min-h-[400px] hover:scale-[1.01]'>
 
                 <div className="entry_message mx-10 pt-16 sm:pt-28 ">
 

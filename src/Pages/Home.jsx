@@ -39,9 +39,28 @@ const Home = () => {
           <TopText />
         </div>
 
-        {/* Static Images */}
+        {imageState.data.length>0?<div>
+          <div className='w-screen text-center font-bold text-2xl px-2 sm:text-4xl text-white font-handwritten2 pt-7' >
+            Your Comic
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 xl:mx-16 pt-16 pb-7">
+            {imageState.data.map((url, i) => {
+              return <Images imgurl={url} key={i} />
+            })}
 
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 xl:mx-16 pt-16 pb-7">
+          </div>
+            </div>
+        :null}
+        
+
+          {/* Static Images */}
+
+        <div className='w-screen text-center font-bold text-2xl px-2 sm:text-4xl text-white font-handwritten2 pt-10' >
+          Dive into a World of Inspiration 
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 xl:mx-16 pt-8 pb-7">
+
           <Images imgurl={img1} />
           <Images imgurl={img5} />
          
@@ -49,12 +68,7 @@ const Home = () => {
         </div>
 
         
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 xl:mx-16 pt-16 pb-7">
-            {imageState.data.map((url, i) => {
-              return <Images imgurl={url} key={i} />
-            })}
-
-          </div>
+       
       </motion.div>
     </>
   )

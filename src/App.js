@@ -12,7 +12,7 @@ function App() {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <>
-      <Toaster />
+      
       <Home />
       {/* <DrawerDefault /> */}
       {/* <div className="">

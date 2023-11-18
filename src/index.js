@@ -8,12 +8,14 @@ import { Provider } from 'react-redux'
 import store from './Redux/store'
 
 import { ThemeProvider } from "@material-tailwind/react";
+import { Toaster } from 'react-hot-toast';
  
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
+    <Toaster />
     <ThemeProvider >
     <App />
     </ThemeProvider>
