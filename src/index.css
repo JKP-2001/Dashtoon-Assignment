@@ -27,7 +27,7 @@ code {
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
   height: 3px
 }
 

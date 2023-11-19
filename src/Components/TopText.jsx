@@ -27,10 +27,14 @@ const TopText = () => {
 
     return (
         <div className='overflow-hidden'>
-            <motion.div 
-                className='pb-10 bg-back2 w-full  h-[600px] xl:h-[500px]  transition-all duration-500 ease-in-out transform bg-center bg-cover min-h-[400px] hover:scale-[1.01]'>
+            <motion.div  
+                className='pb-10 bg-back2 w-full  h-[600px] xl:h-[500px]  transition-all duration-500 ease-in-out transform bg-center bg-cover min-h-[400px] hover:scale-[1.03]'>
 
-                <div className="entry_message mx-10 pt-16 sm:pt-28 ">
+                <motion.div initial={{ opacity: 0, y: 200 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.5 }}
+                className="entry_message mx-10 pt-16 sm:pt-28 ">
 
                     <div className='text-2xl sm:text-5xl text-center font-handwritten2 text-white'>
                         Welcome to AI Image Generator,
@@ -43,7 +47,7 @@ const TopText = () => {
                         Unleash the power of cutting-edge technology to transform your ideas into stunning visuals. Our user-friendly platform seamlessly merges the world of art and artificial intelligence to bring your imagination to life.
                     </div>
 
-                </div>
+                </motion.div>
                 <div className='w-full text-center mt-20'>
                     <TextForm open={open} setOpen={setOpen} handleOpen={handleOpen} />
                 </div>

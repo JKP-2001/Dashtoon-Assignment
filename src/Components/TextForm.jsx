@@ -38,7 +38,7 @@ const TextForm = (props) => {
                 Craft Comic Strip
             </Button>:
 
-            <Button variant="gradient" className="bg-pink-400 hover:bg-pink-800 font-handwritten2">
+            <Button variant="gradient" className="bg-pink-400 font-handwritten2">
                 
                 <Loader />
             </Button>}
