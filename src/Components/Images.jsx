@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+import DownloadForOfflineOutlinedIcon from '@mui/icons-material/DownloadForOfflineOutlined';
 
 const Images = (props) => {
   const className =
@@ -33,7 +34,7 @@ const Images = (props) => {
       <img className="object-fill transition delay-75 rounded-lg hover:scale-105" src={props.imgurl} alt="" />
       {showButtons && (
         <div className="absolute bottom-1 right-1 p-2 cursor-pointer hover:scale-[1.2] transition delay-50 duration-300">
-          <DownloadForOfflineIcon fontSize="large" className='text-white' onClick={downloadImage} />
+          <DownloadForOfflineOutlinedIcon fontSize="large" className='text-white' onClick={downloadImage} />
         </div>
       )}
     </motion.div>

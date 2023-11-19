@@ -36,7 +36,7 @@ const Navbar = () => {
             <motion.div animate={{ x: 0,opacity:1}} initial={{ x: 300,opacity:0 }} transition={{ duration: 1 }}
             className='flex items-center justify-between space-x-7'>
 
-                <button className="hidden sm:block transition delay-150 duration-300 ease-in-out bg-blue-700 text-sm sm:text-base px-2 py-2 rounded-md text-white hover:scale-110 font-Button " onClick={click}>Project Repo</button>
+                <button className="hidden sm:block transition delay-150 duration-300 ease-in-out bg-blue-700 text-sm sm:text-base px-2 py-2 rounded-md text-white hover:scale-110 font-handwritten2" onClick={click}>Project Repo</button>
             </motion.div>
 
             <motion.div animate={{ x: 0,opacity:1}} initial={{ x: 50,opacity:0 }} transition={{ duration: 0.5 }} className='block sm:hidden mr-2 hover:cursor-pointer'>

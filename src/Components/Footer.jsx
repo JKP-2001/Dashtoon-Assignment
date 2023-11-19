@@ -51,7 +51,7 @@ export function Footer() {
             </a>
 
           </div>
-          <p class="mt-8 text-base leading-6 text-center text-gray-100">
+          <p class="mt-8 text-base leading-6 text-center text-gray-100 font-handwritten2">
             © 2023 Jitendra , Inc. All rights reserved.
           </p>
         </div>
