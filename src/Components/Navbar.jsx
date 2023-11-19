@@ -15,10 +15,6 @@ const Navbar = () => {
         window.open('https://github.com/JKP-2001/Dashtoon-Assignment', '_blank');
     }
 
-   
-
-    
-
 
     return (
 

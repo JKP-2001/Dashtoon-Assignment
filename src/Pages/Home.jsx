@@ -15,6 +15,7 @@ import img4 from "../Images/Static/4.jpg"
 import img5 from "../Images/Static/5.png"
 import img6 from "../Images/Static/6.jpg"
 import { Footer } from '../Components/Footer'
+import { Note } from '../Components/Note'
 
 
 
@@ -72,7 +73,7 @@ const Home = () => {
             Explore AI Generated Images From Our Gallery
           </motion.div>
 
-          <motion.div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 xl:mx-16 pt-5 pb-7">
+          <motion.div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 xl:mx-16 pt-5 ">
 
             <Images imgurl={img1} typeo={"static"}/>
             <Images imgurl={img5} typeo={"static"}/>
@@ -83,10 +84,17 @@ const Home = () => {
             <Images imgurl={img3} typeo={"static"}/>
 
             <Images imgurl={img4} typeo={"static"}/>
+
+            
+
+
           </motion.div>
 
-        </motion.div>
+         
 
+        </motion.div>
+        
+       
 
       </motion.div>
 
