@@ -84,7 +84,7 @@ export function fetchImage(data) {
             dispatch(setLoading(false));
             toast.dismiss();
             showToast({
-                msg: "Comic Crafted Successfully",
+                msg: "Comic Crafted Successfully.",
                 type: "success",
                 duration: 2000
             })
