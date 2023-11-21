@@ -95,7 +95,7 @@ export function fetchImage(data) {
             toast.dismiss();
             
             showToast({
-                msg:"Request Timeout Of 30mins. Please try again.",
+                msg:"Falied to fetch. Please try again.",
                 type:"error",
                 duration:3000
             })
